@@ -1,0 +1,75 @@
+ public class Game {
+ class Living {
+        class Controllable {
+            // Player character. We could actually make this an attribute and do gimmicks
+            // with control swapping.
+        }
+
+        class Enemy {
+            // pew pew duh. Basic enemy thing
+        }
+
+        class Shop {
+            // capitalism bitch
+        }
+    }
+
+    class Field {
+        class Obstacle {
+            // It gets in your way. Will dictate if the hazard does damage or not, slows,
+            // etc. Effects and outcomes.
+        }
+
+        class Pickup {
+            // Will dictate effects of pickups. Could be good or bad maybe-- think Binding
+            // of Isaac
+        }
+
+        class Terrain {
+            // YOU NEED A FLOOR BITCH
+        }
+
+        class Platform {
+            // Needs to be permeable in certain situations, eg input strings (crouchjump
+            // down) or by jumping up through the bottom.
+        }
+    }
+
+    class Event {
+        class Projectile {
+            // Inherits a velocity and orientation, as well as any other properties such as
+            // effects, damage, etc.
+        }
+
+        class Burst {
+            // Things like locational "explosions" or localized AoEs. Should use shapes to
+            // represent hitboxing.
+        }
+
+        class Spread {
+            // Things that don't stay static. Examples include fire, water, and other things
+            // that "flow"
+        }
+    }
+
+    class Universal {
+        class Gravity {
+            // it makes you GO D OWN WOOOA
+        }
+
+        class Psy {
+            // who doesn't like psyonically being thrown around? Or throwing something else
+            // around? Should be effects
+            // invoked by an object on a target.
+        }
+
+        class Accel {
+            // Properties of movement acceleration and input handling. May split into an
+            // (enemy) and (controllable) variant.
+        }
+    }
+
+    class paint {
+
+    }
+ }

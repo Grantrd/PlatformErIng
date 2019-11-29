@@ -1,0 +1,40 @@
+    void gameLoop() {
+        // boolean running = true;
+        // while (running) {
+        JFrame frame = new JFrame("My Drawing");
+        JPanel pan = new JPanel(new FlowLayout());
+        Canvas canvas = new Canvas();
+        canvas.setSize(1000, 1000);
+        // canvas.setBackground(Color.green);
+        pan.add(canvas);
+        pan.setBackground(new java.awt.Color(255, 255, 255));
+        // image = new ImageIcon("hornet.png").getImage();
+        JLabel picLabel = new JLabel();
+        ImageIcon imageIcon = new ImageIcon(
+        new ImageIcon("hornet.png").getImage().getScaledInstance(400, 400, Image.SCALE_DEFAULT));
+        picLabel.setIcon(imageIcon);
+        pan.add(picLabel);
+        frame.add(pan);
+        frame.pack();
+        int i = 0;
+        int y = 0;
+        pan.setBackground(new java.awt.Color(0, 50, 25));
+        pan.repaint();
+        frame.setVisible(true);
+        while (i < 1000) {
+            picLabel.setLocation(i, y);
+            System.out.println(i);
+            // pan.repaint();
+            i += 5;
+            // y+=10;
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            frame.add(pan);
+            frame.revalidate();
+            frame.repaint();  
+        }
+    } 
