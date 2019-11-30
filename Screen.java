@@ -1,65 +1,37 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-//import java.awt.event.KeyListener;
-
-public class Screen extends JPanel {// implements KeyListener {
-    int x = 500;
-    int y = 505;
-    private KeyEvent e;
-
+public class Screen extends JPanel {
+    private static final long serialVersionUID = 1L;
+    private static final int floor = 505;
+    int x = 500;   
+    int y = floor;
+    String playerL =  "hornet.png";
+    String backgroundL = "background.png";
     public Screen() {
         setLayout(null);
         repaint();
     }
 
     public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        // Toolkit tool = Toolkit.getDefaultToolkit();
-        setBackground(Color.GREEN);
-        g.setColor(Color.LIGHT_GRAY);
-        // g.fillRect(0, 0, 100, 100);
-        player(g);
+        super.paintComponent(g);       
+        draw(g);
     }
-
-    public void player(Graphics g) {
-        Image player = new ImageIcon(
-                new ImageIcon("hornet.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT)).getImage();
-        Image bc = new ImageIcon(
-                new ImageIcon("background.png").getImage().getScaledInstance(1000, 800, Image.SCALE_DEFAULT))
-                        .getImage();
-        super.paintComponent(g);
-        g.drawImage(bc, 0, 0, this);
+    public void draw(Graphics g){
+        Image player = character(playerL, 200, 200);
+        Image background = bc(backgroundL);
+        g.drawImage(background, 0, 0, this);
         g.drawImage(player, x, y, this);
-        controls(e);
-        validate();
+        repaint();
     }
 
-    public void controls(KeyEvent e) {
-        System.out.println(x);
-        System.out.println(y);
-        try {
-            if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-                x -= 2;
-                System.out.println("x-");
-            }
-
-            if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-                x += 2;
-                System.out.println("x+");
-            }
-
-            if (e.getKeyCode() == KeyEvent.VK_UP) {
-                y -= 2;
-                System.out.println("y-");
-            }
-
-            if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-                y += 2;
-                System.out.println("y+");
-            }
-        } catch (Exception s) {
-            // TODO: handle exception
-        }
+    public Image character(String i, int sx, int sy) {
+        Image character = new ImageIcon(new ImageIcon(i).getImage().getScaledInstance(sx, sy, Image.SCALE_DEFAULT))
+                .getImage();
+        return character;
     }
+
+    public Image bc(String i) {
+        Image bc = new ImageIcon(new ImageIcon(i).getImage().getScaledInstance(1000, 800, Image.SCALE_DEFAULT)).getImage();
+        return bc;
+    } 
 }
