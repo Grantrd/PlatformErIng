@@ -22,7 +22,6 @@ public class Thrad extends Thread {
         fall = (g * duckM * count *.3);
         if (s.y < s.floor) {
             s.hasJump = false;
-            System.out.println("fall: " + fall);
             if (fall < (s.floor - s.y)) {
                 s.y += fall;
             } else {
@@ -36,7 +35,6 @@ public class Thrad extends Thread {
     public void velocity() {
         if(s.vx != 0 || s.vy != 0){
             if (s.vx > 0){
-                System.out.println(s.vx + " " + s.vy);
                 s.x += s.vx; 
                 if (s.y == s.floor){
                     s.vx -= 1;

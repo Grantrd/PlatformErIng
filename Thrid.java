@@ -21,7 +21,6 @@ public class Thrid extends Thread {
     public void run() {
         while(run){
         s.animPrime();
-        System.out.println("Primed Anim");
         try {
             sleep(500);
         } catch (InterruptedException e) {
