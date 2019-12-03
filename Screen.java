@@ -12,6 +12,10 @@ public class Screen extends JPanel {
     Image background = bc(backgroundL);
     String playerm = "duck2.png";
     boolean one = false;
+    boolean up = false;
+    boolean down = false;
+    boolean left = false;
+    boolean right = false;
 
     public Screen() {
         setLayout(null);

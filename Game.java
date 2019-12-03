@@ -18,20 +18,11 @@ public class Game {
         frame.setVisible(true);
     }
 
-    public void gravity() {
-        if (screen.y < screen.floor) {
-            System.out.println(screen.y);
-            screen.y++;
-        }
-    }
-
-    public void gaming() {
-        gravity();
-    }
 
     public void gameLoop() {
         Thred t1 = new Thred(frame, screen);
-        t1.start();        
-        System.out.println("hi");
+        Thrad t2 = new Thrad(frame, screen);
+        t1.start();   
+        t2.start();     
     }
 }

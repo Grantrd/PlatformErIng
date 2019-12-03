@@ -4,12 +4,8 @@ import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 
 public class Thred extends Thread implements KeyListener {
-    boolean up = false;
-    boolean down = false;
-    boolean left = false;
-    boolean right = false;
     JFrame p;
-    Screen n; 
+    Screen n;
 
     public Thred(JFrame t, Screen q) {
         this.p = t;
@@ -20,27 +16,22 @@ public class Thred extends Thread implements KeyListener {
     public void run() {
         p.addKeyListener(this);
         while (true) {
-            System.out.println(n.y);
-            System.out.println(n.x);
-            if(up)
-            {
-                n.y -= 2;
-                up = false;
+            //System.out.println("Hello");
+            if (n.up) {
+                n.y -= 150;
+                n.up = false;
             }
-            if(down)
-            {
+            if (n.down) {
                 n.y += 2;
-                down = false;
+                n.down = false;
             }
-            if(left)
-            {
+            if (n.left) {
                 n.x -= 2;
-                left = false;
+                n.left = false;
             }
-            if(right)
-            {
+            if (n.right) {
                 n.x += 2;
-                right = false;
+                n.right = false;
             }
             n.repaint();
         }
@@ -54,17 +45,17 @@ public class Thred extends Thread implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_UP) {
-            up = true;
+        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+            n.up = true;
         }
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            down = true;
+            n.down = true;
         }
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            left = true;
+            n.left = true;
         }
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            right = true;
+            n.right = true;
         }
     }
 
