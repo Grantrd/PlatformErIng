@@ -20,19 +20,25 @@ public class Thred extends Thread implements KeyListener {
         while (true) {
             //System.out.println("Hello");
             if (n.up) {
-                n.y -= 150;
+                n.vy = 30;
                 n.up = false;
             }
             if (n.down) {
-                n.y += 2;
+                n.y += 0;
                 n.down = false;
             }
             if (n.left) {
-                n.x -= 2;
+                n.vx += -6;
+                if (n.vx < -12){
+                    n.vx = -12;
+                }
                 n.left = false;
             }
             if (n.right) {
-                n.x += 2;
+                n.vx += 6;
+                if (n.vx > 12){
+                    n.vx = 12;
+                }
                 n.right = false;
             }
             s.repaint();

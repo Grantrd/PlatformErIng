@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Player {
+public class Player extends Thread {
     int x;
     int y;
     int vx = 0;
@@ -14,6 +14,7 @@ public class Player {
     String player;
     Image i = character("duck1.png", 64, 64);
     int floor = 184;
+    boolean hasJump = true;
     boolean one = false;
     boolean up = false;
     boolean down = false;
@@ -35,9 +36,12 @@ public class Player {
         if (one) {
             i = character(player1, 64, 64);
             one = false;
+            yield();
         } else {
             i = character(player2, 64, 64);
             one = true;
+            yield();
+            
         }
     }
 

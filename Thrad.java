@@ -14,16 +14,38 @@ public class Thrad extends Thread {
     }
 
     public void gravity() {
+        if (s.y == s.floor){
+            s.hasJump = true;
+        }
         fall = (g * duckM * count *.3);
         if (s.y < s.floor) {
+            s.hasJump = false;
             System.out.println("fall: " + fall);
             if (fall < (s.floor - s.y)) {
                 s.y += fall;
             } else {
                 s.y = s.floor;
                 count = 1;
+                s.vy = 0;
             }
             count++;
+        }
+    }
+    public void velocity() {
+        if(s.vx != 0 || s.vy != 0){
+            if (s.vx > 0){
+                System.out.println(s.vx + " " + s.vy);
+                s.x += s.vx; 
+            }
+            if (s.vx < 0){
+                s.x += s.vx;
+            }
+            if (s.vy > 0){
+                s.y -= s.vy;
+            }
+            if (s.vy < 0){
+                s.y += s.vy;
+            }
         }
     }
 
@@ -37,6 +59,7 @@ public class Thrad extends Thread {
                 e.printStackTrace();
             }
             gravity();
+            velocity();
         }
     }
 }
