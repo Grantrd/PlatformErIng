@@ -1,20 +1,23 @@
 import javax.swing.JFrame;
-import java.util.Timer; 
-import java.util.TimerTask;
 
-public class Throd extends Thread{
+public class Throd extends Thread {
     Player s;
     JFrame j;
+    Boss b;
+    BossLArm bl;
+    BossRArm br;
 
-    public Throd(JFrame f, Player n) {
+    public Throd(JFrame f, Player n, Boss a, BossLArm bl, BossRArm br) {
+        this.b = a;
         this.s = n;
         this.j = f;
+        this.br = br;
+        this.bl = bl;
     }
 
-    public void run(){
-Timer pAniT = new Timer();
-TimerTask pAniTask = new Anim();
-pAniT.schedule(pAniTask, 500, 500);
+    public void run() {
+        b.chase(this.s, this.bl, this.br);
+        b.patrol(this.s, this.bl, this.br);
     }
 
 }

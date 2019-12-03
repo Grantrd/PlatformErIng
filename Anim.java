@@ -6,9 +6,7 @@ public class Anim extends TimerTask{
     public int gCount = 0;
     public void run(){
         p.PAni();
-        b.BAni();
-        System.out.println("Timer ran " + ++gCount);
-        
+        b.BAni();        
     }
 
 }

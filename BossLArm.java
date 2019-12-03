@@ -21,10 +21,12 @@ public class BossLArm extends Thread {
     boolean down = false;
     boolean left = false;
     boolean right = false;
+    Boss b;
 
-    public BossLArm(int x, int y) {
-        this.x = x;
-        this.y = y;
+    public BossLArm(Boss a) {
+        this.b = a;
+        this.x = a.x - 63;
+        this.y = a.y + 13;
     }
 
     public Image bossCharacter(String i, int sx, int sy) {
@@ -37,12 +39,22 @@ public class BossLArm extends Thread {
         if (one) {
             i = bossCharacter(player1, 128, 128);
             one = false;
-        }
-        else {
+        } else {
             i = bossCharacter(player2, 128, 128);
             one = true;
 
         }
     }
 
+    public void catchUP() {
+        if (this.x != (b.x - 63)) {
+            this.x = (b.x - 63);
+        }
+        if (this.y != (b.y + 13)) {
+            this.y = (b.y + 13);
+        }
+
+    }
+
 }
+
