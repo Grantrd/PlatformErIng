@@ -5,14 +5,16 @@ import javax.swing.JFrame;
 
 public class Thred extends Thread implements KeyListener {
     JFrame p;
-    Screen n;
+    Screen s;
+    Player n;
 
-    public Thred(JFrame t, Screen q) {
-        this.p = t;
-        this.n = q;
+    public Thred(JFrame frame, Player p2, Screen screen) {
+        this.n = p2;
+        this.p = frame;
+        this.s = screen;
     }
 
-    @Override
+	@Override
     public void run() {
         p.addKeyListener(this);
         while (true) {
@@ -33,7 +35,7 @@ public class Thred extends Thread implements KeyListener {
                 n.x += 2;
                 n.right = false;
             }
-            n.repaint();
+            s.repaint();
         }
     }
 

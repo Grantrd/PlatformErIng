@@ -1,14 +1,14 @@
 import javax.swing.JFrame;
 
 public class Thrad extends Thread {
-    Screen s;
+    Player s;
     JFrame j;
     double g = 30;
     int duckM = 1;
     int count = 1;
     double fall;
 
-    public Thrad(JFrame f, Screen n) {
+    public Thrad(JFrame f, Player n) {
         this.s = n;
         this.j = f;
     }
