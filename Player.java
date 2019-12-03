@@ -1,7 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Player extends Thread {
+
+public class Player extends Thread{
     int x;
     int y;
     int vx = 0;
@@ -32,11 +33,12 @@ public class Player extends Thread {
         return character;
     }
 
-    public void ani() {
+    public void PAni(){
         if (one) {
             i = character(player1, 64, 64);
             one = false;
             yield();
+            
         } else {
             i = character(player2, 64, 64);
             one = true;

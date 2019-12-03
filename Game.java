@@ -7,7 +7,10 @@ public class Game {
     private static final int HEIGHT = 293;
     JFrame frame = new JFrame("Platformering");
     Player p = new Player(0, 184); 
-    Screen screen = new Screen(p);
+    Boss b = new Boss(172, 50);
+    BossLArm bl = new BossLArm((b.x-63), (b.y+13));
+    BossRArm br = new BossRArm((b.x+73), (b.y+13));
+    Screen screen = new Screen(p, b, bl, br);
     Graphics g;
 
     public Game() {
@@ -20,9 +23,11 @@ public class Game {
     }
 
     public void gameLoop() {
-        Thred t1 = new Thred(frame, p, screen);
-        Thrad t2 = new Thrad(frame, p);
+        Thred t1 = new Thred(frame, p, b, bl, br, screen);
+        Thrad t2 = new Thrad(frame, p, b);
+        //Throd t3 = new Throd(frame, p);
         t1.start();   
-        t2.start();     
+        t2.start(); 
+        //t3.start();    
     }
 }

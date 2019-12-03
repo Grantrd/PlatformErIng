@@ -7,10 +7,12 @@ public class Thrad extends Thread {
     int duckM = 1;
     int count = 1;
     double fall;
+    Boss b;
 
-    public Thrad(JFrame f, Player n) {
+    public Thrad(JFrame f, Player n, Boss b) {
         this.s = n;
         this.j = f;
+        this.b = b;
     }
 
     public void gravity() {
@@ -36,9 +38,15 @@ public class Thrad extends Thread {
             if (s.vx > 0){
                 System.out.println(s.vx + " " + s.vy);
                 s.x += s.vx; 
+                if (s.y == s.floor){
+                    s.vx -= 1;
+                }     
             }
             if (s.vx < 0){
                 s.x += s.vx;
+                if (s.y == s.floor){
+                s.vx +=1;
+                }
             }
             if (s.vy > 0){
                 s.y -= s.vy;
