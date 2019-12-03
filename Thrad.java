@@ -57,7 +57,6 @@ public class Thrad extends Thread {
 
     public void run() {
         while (true) {
-            // System.out.print(" world");
             try {
                 sleep(100);
             } catch (InterruptedException e) {

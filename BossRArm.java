@@ -10,10 +10,10 @@ public class BossRArm extends Thread {
     int sizex = 64;
     int sizey = 64;
     int frameCount = 0;
-    String player1 = "BossRArm1.png";
-    String player2 = "BossRArm2.png";
+    String player1 = "Images/BossRArm1.png";
+    String player2 = "Images/BossRArm2.png";
     String player;
-    Image i = bossCharacter("BossRArm1.png", 64, 64);
+    Image i = bossCharacter("Images/BossRArm1.png", 64, 64);
     int floor = 184;
     boolean hasJump = true;
     boolean one = true;

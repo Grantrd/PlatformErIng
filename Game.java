@@ -5,9 +5,9 @@ public class Game {
 
     private static final int WIDTH = 616;
     private static final int HEIGHT = 293;
-    JFrame frame = new JFrame("Platformering");
+    JFrame frame = new JFrame("Duckman In Space!");
     Player p = new Player(0, 184); 
-    Boss b = new Boss(172, 50);
+    Boss b = new Boss(198, 0);
     BossLArm bl = new BossLArm(b);
     BossRArm br = new BossRArm(b);
     Screen screen = new Screen(p, b, bl, br);

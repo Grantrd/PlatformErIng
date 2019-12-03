@@ -16,8 +16,8 @@ public class Throd extends Thread {
     }
 
     public void run() {
-        b.chase(this.s, this.bl, this.br);
         b.patrol(this.s, this.bl, this.br);
+        b.chase(this.s, this.bl, this.br);       
     }
 
 }

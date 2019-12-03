@@ -10,10 +10,10 @@ public class Player extends Thread{
     int health = 100;
     int sizex = 64;
     int sizey = 64;
-    String player1 = "duck2.png";
-    String player2 = "duck1.png";
+    String player1 = "Images/duck2.png";
+    String player2 = "Images/duck1.png";
     String player;
-    Image i = character("duck1.png", 64, 64);
+    Image i = character("Images/duck1.png", 64, 64);
     int floor = 184;
     boolean hasJump = true;
     boolean one = false;

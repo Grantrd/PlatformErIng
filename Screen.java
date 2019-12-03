@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class Screen extends JPanel {
     private static final long serialVersionUID = 1L;
-    String backgroundL = "background.png";
+    String backgroundL = "Images/background.png";
     Image background = bc(backgroundL);
     Player p;
     Boss b;

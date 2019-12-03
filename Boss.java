@@ -10,16 +10,16 @@ public class Boss extends Thread {
     int sizex = 64;
     int sizey = 64;
     int frameCount = 0;
-    String player1 = "BossBod1.png";
-    String player2 = "BossBod2.png";
-    String player3 = "BossBod3.png";
-    String player4 = "BossBod4.png";
-    String player5 = "BossBod5.png";
-    String player6 = "BossBod6.png";
-    String player7 = "BossBod7.png";
-    String player8 = "BossBod8.png";
+    String player1 = "Images/BossBod1.png";
+    String player2 = "Images/BossBod2.png";
+    String player3 = "Images/BossBod3.png";
+    String player4 = "Images/BossBod4.png";
+    String player5 = "Images/BossBod5.png";
+    String player6 = "Images/BossBod6.png";
+    String player7 = "Images/BossBod7.png";
+    String player8 = "Images/BossBod8.png";
     String player;
-    Image i = bossCharacter("BossBod1.png", 64, 64);
+    Image i = bossCharacter("Images/BossBod1.png", 64, 64);
     int floor = 184;
     boolean hasJump = true;
     boolean up = false;
@@ -73,18 +73,36 @@ public class Boss extends Thread {
     }
 
     public void chase(Player a, BossLArm bl, BossRArm br) {
-        if (a.x > x) {
-            x += 5;
-        } else if (a.x < x) {
-            x -= 5;
+        boolean caught = false;
+        while (!caught) {
+            System.out.println(caught);
+            if (a.x > this.x) {
+                this.x += 1;
+            }
+            if (a.x < x) {
+                this.x -= 1;
+            }
+            if ((a.y - 130) > this.y) {
+                this.y += 1;
+            }
+            if ((a.y - 130) < this.y) {
+                this.y -= 1;
+            }
+            if((a.x == this.x) && ((this.y - 130) == a.y)){
+                caught = true;
+            }
+            try {
+                sleep(150);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            bl.catchUP();
+            br.catchUP();
+            System.out.println(this.x + " " + this.y);
+
         }
-        if ((a.y - 130) > y) {
-            y += 5;
-        } else if ((a.y - 130) < y) {
-            y -= 5;
-        }
-        bl.catchUP();
-        br.catchUP();
+
     }
 
     public void patrol(Player a, BossLArm bl, BossRArm br) {
@@ -97,7 +115,7 @@ public class Boss extends Thread {
             this.x--;
             bl.catchUP();
             br.catchUP();
-            if(this.x == 38){
+            if (this.x == 38) {
                 break;
             }
             try {
@@ -107,15 +125,15 @@ public class Boss extends Thread {
                 e.printStackTrace();
             }
         }
-        while (this.x !=435) {
+        while (this.x != 435) {
             this.x++;
             bl.catchUP();
             br.catchUP();
-            if(this.x == 435){
+            if (this.x == 435) {
                 break;
             }
             try {
-                                                             sleep(10);
+                sleep(10);
             } catch (InterruptedException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -125,11 +143,11 @@ public class Boss extends Thread {
             this.x--;
             bl.catchUP();
             br.catchUP();
-            if(this.x == 198){
+            if (this.x == 198) {
                 break;
             }
             try {
-                                                             sleep(10);
+                sleep(10);
             } catch (InterruptedException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
