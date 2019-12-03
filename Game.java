@@ -5,11 +5,15 @@ import java.awt.event.KeyListener;
 
 public class Game implements KeyListener {
 
-    private static final int WIDTH = 1000;
-    private static final int HEIGHT = 800;
+    private static final int WIDTH = 600;
+    private static final int HEIGHT = 293;
     JFrame frame = new JFrame("Platformering");
     Screen screen = new Screen();
     Graphics g;
+    boolean up = false;
+    boolean down = false;
+    boolean left = false;
+    boolean right = false;
 
     public Game() {
         frame.setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -22,19 +26,20 @@ public class Game implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_UP) {
-            screen.y -= 2;
-            System.out.println("up");
-        } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+            screen.y -= 30;
+        }
+        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             screen.y += 2;
-            System.out.println("down");
 
-        } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+        }
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             screen.x -= 2;
-            System.out.println("left");
-        } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+        }
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             screen.x += 2;
         }
+        screen.repaint();
     }
 
     @Override
@@ -45,11 +50,32 @@ public class Game implements KeyListener {
     public void keyReleased(KeyEvent e) {
     }
 
-    public void gameLoop() {
-        boolean runnable = true;
-        while (runnable) {
-            frame.addKeyListener(this);
-            screen.draw(g);
+    public void gravity() {
+        if (screen.y < screen.floor) {
+            System.out.println(screen.y);
+            screen.y++;
         }
+    }
+
+    public void gaming() {
+        gravity();
+    }
+
+    public void gameLoop() {
+        // gravity();
+        // System.out.println("hi");
+        // try {
+        // Thread.sleep(200);
+        // } catch (InterruptedException e) {
+        // // TODO Auto-generated catch block
+        // e.printStackTrace();
+        // }
+        // frame.addKeyListener(this);
+        // }
+        Thred t1 = new Thred(2);
+        Thred t2 = new Thred(3);
+        t1.start();
+        t2.start();
+
     }
 }
