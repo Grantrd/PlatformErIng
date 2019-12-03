@@ -23,6 +23,7 @@ public class Thred extends Thread implements KeyListener {
     @Override
     public void run() {
         p.addKeyListener(this);
+        s.animPrime();
         while (true) {
             // System.out.println("Hello");
             if (n.up) {
@@ -48,12 +49,6 @@ public class Thred extends Thread implements KeyListener {
                 n.right = false;
             }
             s.repaint();
-            try {
-                sleep(500);
-            } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
         }
     }
 

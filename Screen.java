@@ -20,13 +20,14 @@ public class Screen extends JPanel {
         setLayout(null);
         repaint();
     }
-
-    @Override
-    public void paintComponent(Graphics g) {
+    public void animPrime(){
         p.PAni();
         b.BAni();
         bl.BLAni();
         br.BRAni();
+    }
+    @Override
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(background, 0, 0, this);
         g.drawImage(p.i, p.x, p.y, this);

@@ -25,9 +25,11 @@ public class Game {
     public void gameLoop() {
         Thred t1 = new Thred(frame, p, b, bl, br, screen);
         Thrad t2 = new Thrad(frame, p, b);
+        Thrid t4 = new Thrid(frame, p, b, bl, br, screen);
         //Throd t3 = new Throd(frame, p);
         t1.start();   
         t2.start(); 
+        t4.start();
         //t3.start();    
     }
 }
