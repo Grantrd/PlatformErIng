@@ -73,36 +73,92 @@ public class Boss extends Thread {
     }
 
     public void chase(Player a, BossLArm bl, BossRArm br) {
-        boolean caught = false;
-        while (!caught) {
-            System.out.println(caught);
+        int caught = 0;
+        boolean grab = false;
+        while (caught < 6) {
+            if (grab == true){
+                caught++;
+                grab = false;
+            }
             if (a.x > this.x) {
-                this.x += 1;
+                this.x += 3;
             }
             if (a.x < x) {
-                this.x -= 1;
+                this.x -= 3;
             }
-            if ((a.y - 130) > this.y) {
+            if ((a.y - 150) > this.y) {
                 this.y += 1;
             }
-            if ((a.y - 130) < this.y) {
+            if ((a.y - 150) < this.y) {
                 this.y -= 1;
             }
-            if((a.x == this.x) && ((this.y - 130) == a.y)){
-                caught = true;
+            if((a.x < (this.x + 8) && a.x > (this.x - 8))){
+                grab = true;
             }
             try {
-                sleep(150);
+                sleep(60);
             } catch (InterruptedException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
             bl.catchUP();
             br.catchUP();
-            System.out.println(this.x + " " + this.y);
 
         }
 
+    }
+
+    public void bullets(Player a, BossLArm bl, BossRArm br, Bullet f1, Bullet f2, Bullet f3,
+     Bullet f4, Bullet f5, Bullet f6, Bullet f7, Bullet f8) {
+        int timer = 0;
+
+        while (timer < 100) {
+                timer++;
+                if (timer == 10 || timer == 20 || timer == 30 || timer == 40 || timer == 50 || 
+                timer == 60 || timer == 70 || timer == 80 || timer == 90 || timer == 100) {
+                    // Spawn bullets from his shoulder guns with diagonal velocity.
+                    if(timer == 10 || timer == 50 || timer == 90){
+                        f1.vx = 4; f1.vy = -13; f1.x = (bl.x + 45); f1.y = (bl.y + 14);
+                        f2.vx = -4; f2.vy = -13; f2.x = (br.x + 3); f2.y = (bl.y + 14);
+                    }
+                    if(timer == 20 || timer == 60){
+                        f3.vx = 4; f3.vy = -13; f3.x = (bl.x + 45); f3.y = (bl.y + 14);
+                        f4.vx = -4; f4.vy = -13; f4.x = (br.x + 3); f4.y = (bl.y + 14);
+                    }
+                    if(timer == 30 || timer == 70){
+                        f5.vx = 4; f5.vy = -13; f5.x = (bl.x + 45); f5.y = (bl.y + 14);
+                        f6.vx = -4; f6.vy = -13; f6.x = (br.x + 3); f6.y = (bl.y + 14);
+                    }
+                    if(timer == 40 || timer == 80){
+                        f7.vx = 4; f7.vy = -13; f7.x = (bl.x + 45); f7.y = (bl.y + 14);
+                        f8.vx = -4; f8.vy = -13; f8.x = (br.x + 3); f8.y = (bl.y + 14);
+                    }
+                    
+
+                    System.out.print("pew! pew! ");
+                }
+            if (a.x > this.x) {
+                this.x += 2;
+            }
+            if (a.x < x) {
+                this.x -= 2;
+            }
+            if ((a.y - 150) > this.y) {
+                this.y += 1;
+            }
+            if ((a.y - 150) < this.y) {
+                this.y -= 1;
+            }
+            try {
+                sleep(60);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            bl.catchUP();
+            br.catchUP();
+
+        }
     }
 
     public void patrol(Player a, BossLArm bl, BossRArm br) {
@@ -111,7 +167,21 @@ public class Boss extends Thread {
         } else if ((a.y - 125) < y) {
             y -= 5;
         }
-        while (this.x != 38) {
+        while (this.y > 5){
+            this.y--;
+            bl.catchUP();
+            br.catchUP();
+            if (this.x == 38) {
+                break;
+            }
+            try {
+                sleep(10);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        while (this.x >= 38) {
             this.x--;
             bl.catchUP();
             br.catchUP();
@@ -125,7 +195,7 @@ public class Boss extends Thread {
                 e.printStackTrace();
             }
         }
-        while (this.x != 435) {
+        while (this.x <= 435) {
             this.x++;
             bl.catchUP();
             br.catchUP();
