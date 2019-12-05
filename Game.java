@@ -13,7 +13,8 @@ public class Game {
     Bullet f1 = new Bullet(-60, 0); Bullet f2 = new Bullet(-60, 0); Bullet f3 = new Bullet(-60, 0); 
     Bullet f4 = new Bullet(-60, 0); Bullet f5 = new Bullet(-60, 0); Bullet f6 = new Bullet(-60, 0); 
     Bullet f7 = new Bullet(-60, 0); Bullet f8 = new Bullet(-60, 0);
-    Screen screen = new Screen(p, b, bl, br, f1, f2, f3, f4, f5, f6, f7, f8);
+    Laser l1 = new Laser(b, br); 
+    Screen screen = new Screen(p, b, bl, br, f1, f2, f3, f4, f5, f6, f7, f8, l1);
     Graphics g;
 
     public Game() {
@@ -26,10 +27,10 @@ public class Game {
     }
 
     public void gameLoop() {
-        Thred t1 = new Thred(frame, p, b, bl, br, screen, f1, f2, f3, f4, f5, f6, f7, f8);
-        Thrad t2 = new Thrad(frame, p, b, f1, f2, f3, f4, f5, f6, f7, f8);
-        Thrid t4 = new Thrid(frame, p, b, bl, br, screen, f1, f2, f3, f4, f5, f6, f7, f8);
-        Throd t3 = new Throd(frame, p, b, bl, br, f1, f2, f3, f4, f5, f6, f7, f8);
+        Thred t1 = new Thred(frame, p, b, bl, br, screen, f1, f2, f3, f4, f5, f6, f7, f8, l1);
+        Thrad t2 = new Thrad(frame, p, b, f1, f2, f3, f4, f5, f6, f7, f8, l1);
+        Thrid t4 = new Thrid(frame, p, b, bl, br, screen, f1, f2, f3, f4, f5, f6, f7, f8, l1);
+        Throd t3 = new Throd(frame, p, b, bl, br, f1, f2, f3, f4, f5, f6, f7, f8, l1);
         t1.start();   
         t2.start(); 
         t4.start();

@@ -11,9 +11,10 @@ public class Thred extends Thread implements KeyListener {
     BossLArm bl;
     BossRArm br;
     Bullet f1, f2, f3, f4, f5, f6, f7, f8;
+    Laser l1;
 
     public Thred(JFrame frame, Player p2, Boss b, BossLArm bl, BossRArm br, Screen screen, Bullet f1, Bullet f2, 
-    Bullet f3, Bullet f4, Bullet f5, Bullet f6, Bullet f7, Bullet f8) {
+    Bullet f3, Bullet f4, Bullet f5, Bullet f6, Bullet f7, Bullet f8, Laser l1) {
         this.n = p2;
         this.p = frame;
         this.b = b;
@@ -22,6 +23,7 @@ public class Thred extends Thread implements KeyListener {
         this.s = screen;
         this.f1 = f1; this.f2 = f2; this.f3 = f3; this.f4 = f4;
         this.f5 = f5; this.f6 = f6; this.f7 = f7; this.f8 = f8;
+        this.l1 = l1;
     }
 
     @Override

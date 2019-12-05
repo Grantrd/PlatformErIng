@@ -13,7 +13,7 @@ public class BossRArm extends Thread {
     String player1 = "Images/BossRArm1.png";
     String player2 = "Images/BossRArm2.png";
     String player;
-    Image i = bossCharacter("Images/BossRArm1.png", 64, 64);
+    Image i = bossCharacter("Images/BossRArm1.png", 128, 128);
     int floor = 184;
     boolean hasJump = true;
     boolean one = true;
